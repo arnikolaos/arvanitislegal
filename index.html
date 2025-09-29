@@ -3,80 +3,235 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alexandra Arvaniti – Legal Consultant</title>
+  <title>Arvanitis Legal | International Law & Contracts</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f9fb;
-      color: #222;
+    /* --- Base Styles --- */
+    body, html {
       margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 0;
+      font-family: 'Lato', Arial, sans-serif;
+      scroll-behavior: smooth;
+      color: #222;
     }
-    .card {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 10px;
-      padding: 30px 40px;
-      max-width: 420px;
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      margin: 0 0 15px;
+    }
+    section {
+      padding: 80px 20px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
     }
-    h1 {
-      margin: 0 0 5px;
-      font-size: 22px;
-      color: #0a1f44;
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
-    h2 {
-      margin: 0 0 20px;
-      font-size: 14px;
+
+    .gold-line {
+      width: 60px;
+      height: 3px;
+      background: #bfa76f;
+      margin: 15px auto 40px;
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: all 0.8s ease;
+    }
+    .gold-line.visible {
+      opacity: 1;
+      transform: scaleX(1);
+      box-shadow: 0 0 8px #bfa76f;
+    }
+
+    .shadow-box {
+      background: #fff;
+      max-width: 800px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    /* --- Hero --- */
+    .hero {
+      height: 100vh;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: url('/multimedia/cityscape_arvanitis_lawyer2.jpg') center/cover no-repeat;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      opacity: 1; /* always visible */
+      transform: none;
+    }
+    .hero h1 {
+      font-size: 36px;
+      color: #fff;
+    }
+    .hero h2 {
+      font-size: 18px;
       font-weight: normal;
-      color: #666;
+      color: #ddd;
+      margin-bottom: 8px;
     }
-    p {
+    .hero .location {
       font-size: 14px;
-      margin: 6px 0;
+      color: #ccc;
+      margin-bottom: 25px;
     }
-    a {
-      color: #0a1f44;
+    .scroll-indicator {
+      font-size: 24px;
+      color: #bfa76f;
+      animation: bounce 1.6s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* --- Alternating Sections --- */
+    .dark {
+      background: #0a1f44;
+      color: #eee;
+    }
+    .dark h2, .dark h3 {
+      color: #fff;
+    }
+
+    /* --- Services --- */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .service {
+      flex: 1 1 220px;
+      background: #fff;
+      color: #222;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .service h3 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    /* --- Contact --- */
+    .contact a {
+      color: #bfa76f;
       text-decoration: none;
+      font-weight: bold;
     }
-    a:hover {
-      text-decoration: underline;
-    }
-    .tagline {
+    footer {
+      padding: 20px;
+      background: #000;
+      color: #aaa;
       font-size: 13px;
-      font-style: italic;
-      margin-top: 15px;
-      color: #444;
-    }
-    .intro {
-      margin-top: 18px;
-      font-size: 14px;
-      color: #333;
-      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Alexandra Arvaniti</h1>
-    <h2>Legal Consultant | International Law &amp; Contracts Negotiations</h2>
 
-    <p><strong>Email:</strong> <a href="mailto:arvanitislegal@gmail.com">arvanitislegal@gmail.com</a></p>
-    <p><strong>Website:</strong> <a href="https://www.arvanitislegal.com">www.arvanitislegal.com</a></p>
-    <p><strong>Company:</strong> Master Invest EPE</p>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Alexandra Arvanitis</h1>
+    <div class="gold-line"></div>
+    <h2>Legal Consultant | International Law & Contracts Negotiations</h2>
+    <div class="location">Based in Athens · Working Internationally</div>
+    <div class="scroll-indicator">↓</div>
+  </section>
 
-    <div class="intro">
-      Supporting businesses with contract oversight, negotiations, and strategic legal advice.  
-      Bridging international perspectives with expertise in UK and Chinese Law.
+  <!-- About -->
+  <section>
+    <div class="shadow-box">
+      <h2>About</h2>
+      <div class="gold-line"></div>
+      <p>
+        Alexandra Arvaniti is a legal consultant specializing in international contracts and negotiations. 
+        With experience overseeing high-level agreements and guiding businesses through complex legal landscapes, 
+        she bridges cultures and jurisdictions to ensure clarity and fairness in every transaction.
+      </p>
+      <p>
+        Her work focuses on empowering business leaders by safeguarding their interests, 
+        streamlining negotiations, and providing strategic advice rooted in international law.
+      </p>
     </div>
+  </section>
 
-    <div class="tagline">
-      LL.B. with Chinese Law · University of Nottingham (UK) &amp; University of Hong Kong
+  <!-- Services -->
+  <section class="dark">
+    <h2>Services</h2>
+    <div class="gold-line"></div>
+    <div class="services">
+      <div class="service">
+        <h3>Contract Oversight</h3>
+        <p>Reviewing, drafting, and safeguarding agreements for clarity, compliance, and risk management.</p>
+      </div>
+      <div class="service">
+        <h3>Negotiations & Mediation</h3>
+        <p>Guiding businessmen through complex negotiations, ensuring fair outcomes and strong partnerships.</p>
+      </div>
+      <div class="service">
+        <h3>International Legal Consulting</h3>
+        <p>Leveraging academic and professional expertise in UK and Chinese law to advise across borders.</p>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Education -->
+  <section>
+    <div class="shadow-box">
+      <h2>Education & Credentials</h2>
+      <div class="gold-line"></div>
+      <p><strong>LL.B. with Chinese Law</strong> – University of Nottingham (UK)</p>
+      <p>University of Hong Kong</p>
+      <p><strong>Current Role:</strong> Legal Consultant, Master Invest EPE</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="dark contact">
+    <h2>Contact</h2>
+    <div class="gold-line"></div>
+    <p>Email: <a href="mailto:arvanitislegal@gmail.com">arvanitislegal@gmail.com</a></p>
+    <p>Website: <a href="https://www.arvanitislegal.com">www.arvanitislegal.com</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> Arvanitis Legal. All rights reserved.
+  </footer>
+
+  <script>
+    // Auto-update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Animate gold lines + fade-in sections when in view
+    const goldLines = document.querySelectorAll('.gold-line');
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    goldLines.forEach(line => observer.observe(line));
+    sections.forEach(sec => observer.observe(sec));
+
+    // Dynamic parallax for hero
+    window.addEventListener('scroll', () => {
+      const hero = document.querySelector('.hero');
+      let offset = window.scrollY * 0.4; // adjust multiplier for speed
+      hero.style.backgroundPositionY = `${offset}px`;
+    });
+  </script>
 </body>
 </html>
